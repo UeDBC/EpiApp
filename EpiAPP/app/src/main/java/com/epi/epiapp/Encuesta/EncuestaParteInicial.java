@@ -81,7 +81,7 @@ public class EncuestaParteInicial extends ActionBarActivity {
         vivienda.setCalle(calleET.getText().toString());
         vivienda.setNro(Integer.parseInt(numeroET.getText().toString()));
         encuesta.setVivienda(vivienda);
-        
+
         Intent i = new Intent(EncuestaParteInicial.this,EncuestaViviendas.class);
         i.putExtra("encuesta",encuesta);
         startActivity(i);

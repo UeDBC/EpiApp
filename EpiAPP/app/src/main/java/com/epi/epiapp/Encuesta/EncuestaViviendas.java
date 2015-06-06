@@ -127,6 +127,7 @@ public class EncuestaViviendas extends ActionBarActivity {
         encuesta.setVivienda(vivienda);
 
         Intent i = new Intent(EncuestaViviendas.this,EncuestaRiesgoAmbiental1.class);
+        i.putExtra("encuesta",encuesta);
         startActivity(i);
     }
 }
