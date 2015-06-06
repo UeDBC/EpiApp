@@ -26,18 +26,6 @@ public class APICaller {
         this.context = context;
     }
 
-//    public void getChannelPlaylists(OnWebServiceResponseListener listener){
-//        HttpGetTask task = new HttpGetTask(listener);
-//        task.execute(YOUTUBE_CHANNEL_PLAYLISTS_URL);
-//    }
-//
-//
-//    public void getPlaylistVideos(OnWebServiceResponseListener listener, String playlistId){
-//        HttpGetTask task = new HttpGetTask(listener);
-//        String YOUTUBE_PLAYLIST_VIDEOS_URL = "https://www.googleapis.com/youtube/v3/playlistItems?part=id%2Csnippet&maxResults=50&playlistId="+playlistId+"&key="+YoutubeAPIKEY;
-//        task.execute(YOUTUBE_PLAYLIST_VIDEOS_URL);
-//    }
-
     public class HttpGetTask extends AsyncTask<String, Void, String> {
         String result = "fail";
         OnWebServiceResponseListener listener;

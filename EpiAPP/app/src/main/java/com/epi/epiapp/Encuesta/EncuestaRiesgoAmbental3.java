@@ -1,14 +1,22 @@
 package com.epi.epiapp.Encuesta;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.epi.epiapp.R;
+import com.google.gson.Gson;
+
+import java.io.FileWriter;
+import java.io.IOException;
 
 import Model.Encuesta;
 import Model.RiesgoAmbiental2;
@@ -77,11 +85,48 @@ public class EncuestaRiesgoAmbental3 extends ActionBarActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_ok) {
-            // validateItems();
+            sendSurvey();
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void sendSurvey() {
+        Gson gson = new Gson();
+        String json = gson.toJson(encuesta);
+
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+//        if (isConnected) {
+////            beginAPIPOST();
+//        } else
+//        {
+            try {
+                FileWriter file = new FileWriter(getFilesDir().getPath().toString()+"transactionsStack");
+                try {
+                    file.append(json);
+
+                    System.out.println("Successfully Copied JSON Object to File...");
+                    System.out.println("\nJSON Object: " + json);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+
+                } finally {
+                    file.flush();
+                    file.close();
+                }
+            } catch (IOException e) {
+                Log.d("ERROR",e.getMessage());
+                e.printStackTrace();
+            }
+//        }
+    }
+
+
+
 
    /* private void validateItems() {
 
