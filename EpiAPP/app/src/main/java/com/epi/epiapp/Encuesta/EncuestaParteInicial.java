@@ -7,7 +7,7 @@ import android.view.MenuItem;
 
 import com.epi.epiapp.R;
 
-public class EncuestaParte1 extends ActionBarActivity {
+public class EncuestaParteInicial extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

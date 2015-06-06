@@ -3,4 +3,7 @@
 <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_encuesta_parte1">EncuestaParte1</string>
+    <string name="title_activity_encuesta_riesgo_ambiental1">EncuestaRiesgoAmbiental1</string>
+    <string name="title_activity_encuesta_riesgo_ambiental2">EncuestaRiesgoAmbiental2</string>
+    <string name="title_activity_encuesta_riesgo_ambental3">EncuestaRiesgoAmbental3</string>
 </resources>
