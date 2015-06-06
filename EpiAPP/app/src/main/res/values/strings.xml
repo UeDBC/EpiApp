@@ -13,5 +13,6 @@
     <string name="encuesta_vivienda_pregunta_4">¿Los tanques de agua tienen tapa?</string>
     <string name="encuesta_vivienda_pregunta_5">¿Ha realizado limpieza de tanque de agua durante el último año?</string>
     <string name="ok" >Ok</string>
+    <string name="title_activity_encuesta_viviendas">EncuestaViviendas</string>
 
 </resources>
