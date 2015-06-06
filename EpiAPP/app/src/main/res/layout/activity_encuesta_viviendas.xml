@@ -55,7 +55,6 @@
             android:layout_height="wrap_content" />
 
 
-
         <Spinner
             android:id="@+id/spinnerPregunta4"
             android:layout_width="wrap_content"

@@ -10,6 +10,9 @@ import android.widget.Spinner;
 
 import com.epi.epiapp.R;
 
+import Model.Encuesta;
+import Model.Vivienda;
+
 public class EncuestaViviendas extends ActionBarActivity {
 
     private Spinner spinnerPregunta1;
@@ -23,6 +26,8 @@ public class EncuestaViviendas extends ActionBarActivity {
     String[] opcionesPregunta3= {"Sí","No"};
     String[] opcionesPregunta4= {"Sí","No"};
     String[] opcionesPregunta5= {"Sí","No"};
+
+    private Encuesta encuesta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +60,8 @@ public class EncuestaViviendas extends ActionBarActivity {
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPregunta5.setAdapter(adapter5);
 
+        encuesta = (Encuesta) getIntent().getSerializableExtra("encuesta");
+
     }
 
     @Override
@@ -80,6 +87,45 @@ public class EncuestaViviendas extends ActionBarActivity {
     }
 
     private void nextStep() {
+
+
+        int tiempoQueVivenEnVivienda = spinnerPregunta1.getSelectedItemPosition();
+
+        int tieneAguaDeRedOpcion = spinnerPregunta2.getSelectedItemPosition();
+        boolean tieneAguaDeRed = false;
+        if (tieneAguaDeRedOpcion == 0){
+            tieneAguaDeRed = true;
+        }
+
+        int callePavOpcion = spinnerPregunta3.getSelectedItemPosition();
+        boolean callePav = false;
+        if (callePavOpcion == 0){
+            callePav = true;
+        }
+
+        int tanqueAguaOpcion = spinnerPregunta4.getSelectedItemPosition();
+        boolean tanqueAguaConTapa = false;
+        if (tanqueAguaOpcion == 0){
+            tanqueAguaConTapa = true;
+        }
+
+        int realizoLimpiezaTanqueOpcion = spinnerPregunta5.getSelectedItemPosition();
+        boolean realizoLimpiezaTanque = false;
+        if (realizoLimpiezaTanqueOpcion == 0){
+            realizoLimpiezaTanque = true;
+        }
+
+
+
+        Vivienda vivienda = encuesta.getVivienda();
+        vivienda.setAgua(tieneAguaDeRed);
+        vivienda.setCallePav(callePav);
+        vivienda.setRealizoLimpieza(realizoLimpiezaTanque);
+        vivienda.setTanqueAguaConTapa(tanqueAguaConTapa);
+        vivienda.setTiempoQueVivenEnVivienda(tiempoQueVivenEnVivienda);
+
+        encuesta.setVivienda(vivienda);
+
         Intent i = new Intent(EncuestaViviendas.this,EncuestaRiesgoAmbiental1.class);
         startActivity(i);
     }

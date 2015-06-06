@@ -10,6 +10,9 @@ import android.widget.Toast;
 
 import com.epi.epiapp.R;
 
+import Model.Encuesta;
+import Model.Vivienda;
+
 public class EncuestaParteInicial extends ActionBarActivity {
 
     EditText nombreET;
@@ -27,7 +30,6 @@ public class EncuestaParteInicial extends ActionBarActivity {
          edadET = (EditText) findViewById(R.id.edadET);
          calleET = (EditText) findViewById(R.id.calleET);
          numeroET = (EditText) findViewById(R.id.numeroET);
-
 
     }
 
@@ -70,8 +72,18 @@ public class EncuestaParteInicial extends ActionBarActivity {
 
     private void nextStep() {
 
-        Intent i = new Intent(EncuestaParteInicial.this,EncuestaViviendas.class);
+        Encuesta encuesta = new Encuesta();
+        Vivienda vivienda = new Vivienda();
 
+        long unixTime = System.currentTimeMillis() / 1000L;
+
+        encuesta.setFechaUnixTimestamp(String.valueOf(unixTime));
+        vivienda.setCalle(calleET.getText().toString());
+        vivienda.setNro(Integer.parseInt(numeroET.getText().toString()));
+        encuesta.setVivienda(vivienda);
+        
+        Intent i = new Intent(EncuestaParteInicial.this,EncuestaViviendas.class);
+        i.putExtra("encuesta",encuesta);
         startActivity(i);
 
     }
