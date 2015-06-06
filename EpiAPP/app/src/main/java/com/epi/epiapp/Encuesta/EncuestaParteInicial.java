@@ -12,13 +12,13 @@ public class EncuestaParteInicial extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_encuesta_parte1);
+        setContentView(R.layout.activity_encuesta_parte_inicial);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_encuesta_parte1, menu);
+        getMenuInflater().inflate(R.menu.menu_encuesta_parte_inicial, menu);
         return true;
     }
 
@@ -30,7 +30,7 @@ public class EncuestaParteInicial extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_ok) {
             return true;
         }
 
