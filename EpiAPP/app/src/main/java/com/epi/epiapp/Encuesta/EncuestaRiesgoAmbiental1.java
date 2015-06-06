@@ -62,8 +62,8 @@ public class EncuestaRiesgoAmbiental1 extends ActionBarActivity
 
     }
 
-
-    public boolean onCreateOptionMenu(Menu menu)
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.menu_encuesta_riesgo_ambiental1,menu);
         return true;
