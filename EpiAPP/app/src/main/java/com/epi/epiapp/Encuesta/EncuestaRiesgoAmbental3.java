@@ -1,5 +1,6 @@
 package com.epi.epiapp.Encuesta;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.epi.epiapp.R;
+
+import Model.RiesgoAmbiental2;
+import Model.RiesgoAmbiental3;
+import Model.Vivienda;
 
 public class EncuestaRiesgoAmbental3 extends ActionBarActivity
 {
@@ -49,6 +54,64 @@ public class EncuestaRiesgoAmbental3 extends ActionBarActivity
         spinerNinoEspu.setAdapter(adapter4);
 
 
+    }
+
+    public boolean onCreateOptionMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.menu_encuesta_riesgo_ambental3,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_ok) {
+            // validateItems();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+   /* private void validateItems() {
+
+        String nombre = nombreET.getText().toString();
+        String edad = edadET.getText().toString();
+        String calle = calleET.getText().toString();
+        String num = numeroET.getText().toString();
+
+        if (!nombre.isEmpty() && !edad.isEmpty() && !calle.isEmpty() && !num.isEmpty() ){
+            nextStep();
+        } else {
+            Toast.makeText(EncuestaParteInicial.this, "Debe completar todos los campos", Toast.LENGTH_SHORT).show();
+        }
+
+    }*/
+
+    private void nextStep()
+    {
+        Vivienda vivienda = new Vivienda();
+        vivienda.setR3(objeto1());
+
+        //Intent i = new Intent(EncuestaRiesgoAmbental3.this,EncuestaRiesgoAmbental3.class);
+       // i.putExtra("RA1",(Vivienda)vivienda);
+        //startActivity(i);
+
+    }
+
+    private RiesgoAmbiental3 objeto1()
+    {
+        RiesgoAmbiental3 model = new RiesgoAmbiental3();
+        model.setPregunta9(spinerInfo.getSelectedItemPosition());
+        model.setPregunta10(spinerDanoPlantas.getSelectedItemPosition());
+        model.setPregunta11(spinerDanoAnimal.getSelectedItemPosition());
+        model.setPregunta12(spinerNinoEspu.getSelectedItemPosition());
+
+        return model;
     }
 
 

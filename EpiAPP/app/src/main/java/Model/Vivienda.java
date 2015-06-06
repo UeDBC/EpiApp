@@ -18,6 +18,9 @@ public class Vivienda
     private int lote;
     private int agua;
     private int tipo_calle;
+    private RiesgoAmbiental1 r1;
+    private RiesgoAmbiental2 r2;
+    private RiesgoAmbiental3 r3;
 
 
     public int getAntiguedad() {
@@ -122,5 +125,29 @@ public class Vivienda
 
     public void setTipo_calle(int tipo_calle) {
         this.tipo_calle = tipo_calle;
+    }
+
+    public RiesgoAmbiental1 getR1() {
+        return r1;
+    }
+
+    public void setR1(RiesgoAmbiental1 r1) {
+        this.r1 = r1;
+    }
+
+    public RiesgoAmbiental2 getR2() {
+        return r2;
+    }
+
+    public void setR2(RiesgoAmbiental2 r2) {
+        this.r2 = r2;
+    }
+
+    public RiesgoAmbiental3 getR3() {
+        return r3;
+    }
+
+    public void setR3(RiesgoAmbiental3 r3) {
+        this.r3 = r3;
     }
 }
