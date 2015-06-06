@@ -32,6 +32,10 @@
             android:name=".Encuesta.EncuestaRiesgoAmbental3"
             android:label="@string/title_activity_encuesta_riesgo_ambental3" >
         </activity>
+        <activity
+            android:name=".Encuesta.EncuestaVivienda"
+             >
+        </activity>
     </application>
 
 </manifest>
