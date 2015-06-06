@@ -17,8 +17,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Encuesta.EncuestaParte1"
+            android:name=".Encuesta.EncuestaParteInicial"
             android:label="@string/title_activity_encuesta_parte1" >
+        </activity>
+        <activity
+            android:name=".Encuesta.EncuestaRiesgoAmbiental1"
+            android:label="@string/title_activity_encuesta_riesgo_ambiental1" >
+        </activity>
+        <activity
+            android:name=".Encuesta.EncuestaRiesgoAmbiental2"
+            android:label="@string/title_activity_encuesta_riesgo_ambiental2" >
+        </activity>
+        <activity
+            android:name=".Encuesta.EncuestaRiesgoAmbental3"
+            android:label="@string/title_activity_encuesta_riesgo_ambental3" >
         </activity>
     </application>
 
