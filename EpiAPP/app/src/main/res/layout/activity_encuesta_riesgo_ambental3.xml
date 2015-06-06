@@ -29,7 +29,7 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spinerDañosPlantas" />
+            android:id="@+id/spinerDanosPlantas" />
 
         <TextView
             android:id="@+id/textView3"
@@ -40,7 +40,7 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spinerDañoAnimal" />
+            android:id="@+id/spinerDanoAnimal" />
 
         <TextView
             android:id="@+id/textView4"
@@ -51,7 +51,7 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spinerNiñosEspuestos" />
+            android:id="@+id/spinerNinosEspuestos" />
 
 
 

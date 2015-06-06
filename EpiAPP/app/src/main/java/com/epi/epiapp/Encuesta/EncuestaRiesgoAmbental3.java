@@ -12,8 +12,8 @@ import com.epi.epiapp.R;
 public class EncuestaRiesgoAmbental3 extends ActionBarActivity
 {
     private Spinner spinerInfo;
-    private Spinner spinerDañoPlantas;
-    private Spinner spinerDañoAnimal;
+    private Spinner spinerDanoPlantas;
+    private Spinner spinerDanoAnimal;
     private Spinner spinerNinoEspu;
 
     String [] pregunta_9={"Si","No"};
@@ -27,9 +27,9 @@ public class EncuestaRiesgoAmbental3 extends ActionBarActivity
         setContentView(R.layout.activity_encuesta_riesgo_ambental3);
 
         spinerInfo=(Spinner)findViewById(R.id.spinnerInfo);
-        spinerDañoPlantas=(Spinner)findViewById(R.id.spinerDañosPlantas);
-        spinerDañoAnimal=(Spinner)findViewById(R.id.spinerDañoAnimal);
-        spinerNinoEspu=(Spinner)findViewById(R.id.spinerNiñosEspuestos);
+        spinerDanoPlantas=(Spinner)findViewById(R.id.spinerDanosPlantas);
+        spinerDanoAnimal=(Spinner)findViewById(R.id.spinerDanoAnimal);
+        spinerNinoEspu=(Spinner)findViewById(R.id.spinerNinosEspuestos);
 
 
         ArrayAdapter adapter1 = new ArrayAdapter<>(EncuestaRiesgoAmbental3.this,android.R.layout.simple_spinner_item,pregunta_9);
@@ -38,11 +38,11 @@ public class EncuestaRiesgoAmbental3 extends ActionBarActivity
 
         ArrayAdapter adapter2 = new ArrayAdapter<>(EncuestaRiesgoAmbental3.this,android.R.layout.simple_spinner_item,pregunta_10);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinerDañoPlantas.setAdapter(adapter2);
+        spinerDanoPlantas.setAdapter(adapter2);
 
         ArrayAdapter adapter3 = new ArrayAdapter<>(EncuestaRiesgoAmbental3.this,android.R.layout.simple_spinner_item,pregunta_11);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinerDañoAnimal.setAdapter(adapter3);
+        spinerDanoAnimal.setAdapter(adapter3);
 
         ArrayAdapter adapter4 = new ArrayAdapter<>(EncuestaRiesgoAmbental3.this,android.R.layout.simple_spinner_item,pregunta_12);
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

@@ -71,6 +71,7 @@ public class EncuestaParteInicial extends ActionBarActivity {
     private void nextStep() {
 
         Intent i = new Intent(EncuestaParteInicial.this,EncuestaViviendas.class);
+
         startActivity(i);
 
     }
