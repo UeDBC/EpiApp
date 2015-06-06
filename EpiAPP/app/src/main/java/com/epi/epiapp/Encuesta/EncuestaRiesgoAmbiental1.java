@@ -102,11 +102,12 @@ public class EncuestaRiesgoAmbiental1 extends ActionBarActivity
     private void nextStep()
     {
         Vivienda vivienda = new Vivienda();
-        encuesta.setVivienda();
+        vivienda=encuesta.getVivienda();
+
         vivienda.setR1(objeto1());
 
         Intent i = new Intent(EncuestaRiesgoAmbiental1.this,EncuestaRiesgoAmbiental2.class);
-        i.putExtra("RA1",(Vivienda)vivienda);
+        i.putExtra("encuesta",(Encuesta)encuesta);
         startActivity(i);
 
     }

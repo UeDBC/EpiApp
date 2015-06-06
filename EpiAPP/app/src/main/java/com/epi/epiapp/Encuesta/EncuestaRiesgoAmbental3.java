@@ -10,6 +10,7 @@ import android.widget.Spinner;
 
 import com.epi.epiapp.R;
 
+import Model.Encuesta;
 import Model.RiesgoAmbiental2;
 import Model.RiesgoAmbiental3;
 import Model.Vivienda;
@@ -21,6 +22,8 @@ public class EncuestaRiesgoAmbental3 extends ActionBarActivity
     private Spinner spinerDanoAnimal;
     private Spinner spinerNinoEspu;
 
+    private Encuesta encuesta;
+
     String [] pregunta_9={"Si","No"};
     String [] pregunta_10={"Si","No","No sabe"};
     String [] pregunta_11={"Si","No","No sabe"};
@@ -30,6 +33,8 @@ public class EncuestaRiesgoAmbental3 extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encuesta_riesgo_ambental3);
+
+        encuesta=(Encuesta)this.getIntent().getExtras().get("encuesta");
 
         spinerInfo=(Spinner)findViewById(R.id.spinnerInfo);
         spinerDanoPlantas=(Spinner)findViewById(R.id.spinerDanosPlantas);
@@ -95,6 +100,8 @@ public class EncuestaRiesgoAmbental3 extends ActionBarActivity
     private void nextStep()
     {
         Vivienda vivienda = new Vivienda();
+
+        vivienda= encuesta.getVivienda();
         vivienda.setR3(objeto1());
 
         //Intent i = new Intent(EncuestaRiesgoAmbental3.this,EncuestaRiesgoAmbental3.class);
