@@ -1,40 +1,24 @@
-package com.epi.epiapp;
+package com.epi.epiapp.Encuesta;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-import com.epi.epiapp.Encuesta.EncuestaParte1;
+import com.epi.epiapp.R;
 
-
-public class Principal extends ActionBarActivity {
-
-    private Button iniciarEncuestaBtn;
+public class EncuestaParte1 extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_principal);
+        setContentView(R.layout.activity_encuesta_parte1);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_principal, menu);
-
-        iniciarEncuestaBtn = (Button) findViewById(R.id.iniciarEncuestaBtn);
-        iniciarEncuestaBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Principal.this, EncuestaParte1.class);
-                startActivity(i);
-            }
-        });
-
+        getMenuInflater().inflate(R.menu.menu_encuesta_parte1, menu);
         return true;
     }
 
