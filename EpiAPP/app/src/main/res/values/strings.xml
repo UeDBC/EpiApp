@@ -6,4 +6,11 @@
     <string name="title_activity_encuesta_riesgo_ambiental1">EncuestaRiesgoAmbiental1</string>
     <string name="title_activity_encuesta_riesgo_ambiental2">EncuestaRiesgoAmbiental2</string>
     <string name="title_activity_encuesta_riesgo_ambental3">EncuestaRiesgoAmbental3</string>
+
+    <string name="encuesta_vivienda_pregunta_1">El tiempo que hace que viven en esa vivienda</string>
+    <string name="encuesta_vivienda_pregunta_2">Tiene agua de red</string>
+    <string name="encuesta_vivienda_pregunta_3">Calle pavimentada</string>
+    <string name="encuesta_vivienda_pregunta_4">¿Los tanques de agua tienen tapa?</string>
+    <string name="encuesta_vivienda_pregunta_5">¿Ha realizado limpieza de tanque de agua durante el último año?</string>
+
 </resources>
