@@ -1,9 +1,11 @@
 package Model;
 
+import java.io.Serializable;
+
 /**
  * Created by Guillermo on 06/06/2015.
  */
-public class Vivienda
+public class Vivienda implements Serializable
 {
     private int antiguedad;
     private int individuos;
@@ -16,9 +18,11 @@ public class Vivienda
     private int nro;
     private int manzana;
     private int lote;
-    private int agua;
-    private int tipo_calle;
-
+    private boolean tieneAguaRed;
+    private boolean tieneCallePav;
+    private boolean tanqueAguaConTapa;
+    private boolean realizoLimpieza;
+    private int tiempoQueVivenEnVivienda;
 
     public int getAntiguedad() {
         return antiguedad;
@@ -108,19 +112,43 @@ public class Vivienda
         this.lote = lote;
     }
 
-    public int getAgua() {
-        return agua;
+    public boolean tieneAguaRed() {
+        return tieneAguaRed;
     }
 
-    public void setAgua(int agua) {
-        this.agua = agua;
+    public void setAgua(boolean agua) {
+        this.tieneAguaRed = agua;
     }
 
-    public int getTipo_calle() {
-        return tipo_calle;
+    public boolean tieneCallePav() {
+        return tieneCallePav;
     }
 
-    public void setTipo_calle(int tipo_calle) {
-        this.tipo_calle = tipo_calle;
+    public void setCallePav(boolean tipo_calle) {
+        this.tieneCallePav = tipo_calle;
+    }
+
+    public boolean isTanqueAguaConTapa() {
+        return tanqueAguaConTapa;
+    }
+
+    public void setTanqueAguaConTapa(boolean tanqueAguaConTapa) {
+        this.tanqueAguaConTapa = tanqueAguaConTapa;
+    }
+
+    public boolean isRealizoLimpieza() {
+        return realizoLimpieza;
+    }
+
+    public void setRealizoLimpieza(boolean realizoLimpieza) {
+        this.realizoLimpieza = realizoLimpieza;
+    }
+
+    public int getTiempoQueVivenEnVivienda() {
+        return tiempoQueVivenEnVivienda;
+    }
+
+    public void setTiempoQueVivenEnVivienda(int tiempoQueVivenEnVivienda) {
+        this.tiempoQueVivenEnVivienda = tiempoQueVivenEnVivienda;
     }
 }

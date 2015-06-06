@@ -1,11 +1,12 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Guillermo on 06/06/2015.
  */
-public class Encuesta
+public class Encuesta implements Serializable
 {
     private String id;
     private String fechaUnixTimestamp;

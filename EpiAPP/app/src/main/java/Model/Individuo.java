@@ -1,9 +1,11 @@
 package Model;
 
+import java.io.Serializable;
+
 /**
  * Created by Guillermo on 06/06/2015.
  */
-public class Individuo {
+public class Individuo implements Serializable{
 
     private String nombre;
     private String añoNac;
