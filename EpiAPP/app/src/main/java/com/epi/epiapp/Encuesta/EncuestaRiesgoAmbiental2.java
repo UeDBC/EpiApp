@@ -75,6 +75,7 @@ public class EncuestaRiesgoAmbiental2 extends ActionBarActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_ok) {
             // validateItems();
+            nextStep();
         }
 
         return super.onOptionsItemSelected(item);
