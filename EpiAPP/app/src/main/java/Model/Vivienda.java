@@ -1,52 +1,27 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by Guillermo on 06/06/2015.
  */
 public class Vivienda implements Serializable
 {
-    private int antiguedad;
-    private int individuos;
     private long latitud;
     private long longitud;
-    private int pueblo;
-    private int cantidad_muertes;
-    private int fuentes_contaminacion;
     private String calle;
-    private int nro;
+    private int nroCalle;
     private int manzana;
     private int lote;
 
-    private int agua;
-    private int tipo_calle;
-    private RiesgoAmbiental1 r1;
-    private RiesgoAmbiental2 r2;
-    private RiesgoAmbiental3 r3;
 
+    private ArrayList<Respuesta> respuestasVivienda;
 
-    private boolean tieneAguaRed;
-    private boolean tieneCallePav;
-    private boolean tanqueAguaConTapa;
-    private boolean realizoLimpieza;
-    private int tiempoQueVivenEnVivienda;
-
-    public int getAntiguedad() {
-        return antiguedad;
+    public Vivienda(){
+        setRespuestas(new ArrayList());
     }
 
-    public void setAntiguedad(int antiguedad) {
-        this.antiguedad = antiguedad;
-    }
-
-    public int getIndividuos() {
-        return individuos;
-    }
-
-    public void setIndividuos(int individuos) {
-        this.individuos = individuos;
-    }
 
     public long getLatitud() {
         return latitud;
@@ -64,30 +39,6 @@ public class Vivienda implements Serializable
         this.longitud = longitud;
     }
 
-    public int getPueblo() {
-        return pueblo;
-    }
-
-    public void setPueblo(int pueblo) {
-        this.pueblo = pueblo;
-    }
-
-    public int getCantidad_muertes() {
-        return cantidad_muertes;
-    }
-
-    public void setCantidad_muertes(int cantidad_muertes) {
-        this.cantidad_muertes = cantidad_muertes;
-    }
-
-    public int getFuentes_contaminacion() {
-        return fuentes_contaminacion;
-    }
-
-    public void setFuentes_contaminacion(int fuentes_contaminacion) {
-        this.fuentes_contaminacion = fuentes_contaminacion;
-    }
-
     public String getCalle() {
         return calle;
     }
@@ -97,11 +48,11 @@ public class Vivienda implements Serializable
     }
 
     public int getNro() {
-        return nro;
+        return nroCalle;
     }
 
     public void setNro(int nro) {
-        this.nro = nro;
+        this.nroCalle = nro;
     }
 
     public int getManzana() {
@@ -120,67 +71,12 @@ public class Vivienda implements Serializable
         this.lote = lote;
     }
 
-    public boolean tieneAguaRed() {
-        return tieneAguaRed;
+
+    public ArrayList<Respuesta> getRespuestas() {
+        return respuestasVivienda;
     }
 
-    public void setAgua(boolean agua) {
-        this.tieneAguaRed = agua;
-    }
-
-    public boolean tieneCallePav() {
-        return tieneCallePav;
-    }
-
-    public void setCallePav(boolean tipo_calle) {
-        this.tieneCallePav = tipo_calle;
-    }
-
-    public boolean isTanqueAguaConTapa() {
-        return tanqueAguaConTapa;
-    }
-
-    public void setTanqueAguaConTapa(boolean tanqueAguaConTapa) {
-        this.tanqueAguaConTapa = tanqueAguaConTapa;
-    }
-
-    public boolean isRealizoLimpieza() {
-        return realizoLimpieza;
-    }
-
-    public void setRealizoLimpieza(boolean realizoLimpieza) {
-        this.realizoLimpieza = realizoLimpieza;
-    }
-
-    public int getTiempoQueVivenEnVivienda() {
-        return tiempoQueVivenEnVivienda;
-    }
-
-    public void setTiempoQueVivenEnVivienda(int tiempoQueVivenEnVivienda) {
-        this.tiempoQueVivenEnVivienda = tiempoQueVivenEnVivienda;
-    }
-
-    public RiesgoAmbiental1 getR1() {
-        return r1;
-    }
-
-    public void setR1(RiesgoAmbiental1 r1) {
-        this.r1 = r1;
-    }
-
-    public RiesgoAmbiental2 getR2() {
-        return r2;
-    }
-
-    public void setR2(RiesgoAmbiental2 r2) {
-        this.r2 = r2;
-    }
-
-    public RiesgoAmbiental3 getR3() {
-        return r3;
-    }
-
-    public void setR3(RiesgoAmbiental3 r3) {
-        this.r3 = r3;
+    public void setRespuestas(ArrayList<Respuesta> respuestas) {
+        this.respuestasVivienda = respuestas;
     }
 }

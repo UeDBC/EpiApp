@@ -1,7 +1,6 @@
 package com.epi.epiapp.Encuesta;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.ActionBarActivity;
@@ -19,8 +18,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import Model.Encuesta;
-import Model.RiesgoAmbiental2;
-import Model.RiesgoAmbiental3;
+import Model.Respuesta;
 import Model.Vivienda;
 
 public class EncuestaRiesgoAmbental3 extends ActionBarActivity
@@ -92,6 +90,15 @@ public class EncuestaRiesgoAmbental3 extends ActionBarActivity
     }
 
     private void sendSurvey() {
+
+        Vivienda vivienda = encuesta.getVivienda();
+
+        vivienda.getRespuestas().add(new Respuesta(9, String.valueOf(spinerInfo.getSelectedItemPosition())));
+        vivienda.getRespuestas().add(new Respuesta(10, String.valueOf(spinerDanoPlantas.getSelectedItemPosition())));
+        vivienda.getRespuestas().add(new Respuesta(11, String.valueOf(spinerDanoAnimal.getSelectedItemPosition())));
+        vivienda.getRespuestas().add(new Respuesta(12,String.valueOf(spinerNinoEspu.getSelectedItemPosition())));
+
+
         Gson gson = new Gson();
         String json = gson.toJson(encuesta);
 
@@ -99,10 +106,10 @@ public class EncuestaRiesgoAmbental3 extends ActionBarActivity
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
 
-//        if (isConnected) {
-////            beginAPIPOST();
-//        } else
-//        {
+        if (isConnected) {
+
+        }
+//        else {
             try {
                 FileWriter file = new FileWriter(getFilesDir().getPath().toString()+"transactionsStack");
                 try {
@@ -123,48 +130,6 @@ public class EncuestaRiesgoAmbental3 extends ActionBarActivity
                 e.printStackTrace();
             }
 //        }
-    }
-
-
-
-
-   /* private void validateItems() {
-
-        String nombre = nombreET.getText().toString();
-        String edad = edadET.getText().toString();
-        String calle = calleET.getText().toString();
-        String num = numeroET.getText().toString();
-
-        if (!nombre.isEmpty() && !edad.isEmpty() && !calle.isEmpty() && !num.isEmpty() ){
-            nextStep();
-        } else {
-            Toast.makeText(EncuestaParteInicial.this, "Debe completar todos los campos", Toast.LENGTH_SHORT).show();
-        }
-
-    }*/
-
-    private void nextStep()
-    {
-        Vivienda vivienda = new Vivienda();
-
-        vivienda= encuesta.getVivienda();
-        vivienda.setR3(objeto1());
-
-        //Intent i = new Intent(EncuestaRiesgoAmbental3.this,EncuestaRiesgoAmbental3.class);
-       // i.putExtra("RA1",(Vivienda)vivienda);
-        //startActivity(i);
-
-    }
-
-    private RiesgoAmbiental3 objeto1()
-    {
-        RiesgoAmbiental3 model = new RiesgoAmbiental3();
-        model.setPregunta9(spinerInfo.getSelectedItemPosition());
-        model.setPregunta10(spinerDanoPlantas.getSelectedItemPosition());
-        model.setPregunta11(spinerDanoAnimal.getSelectedItemPosition());
-        model.setPregunta12(spinerNinoEspu.getSelectedItemPosition());
-
-        return model;
     }
 
 

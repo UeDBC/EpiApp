@@ -4,8 +4,11 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,6 +16,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 
 /**
  * Created by agus on 11/05/15.
@@ -20,72 +24,28 @@ import java.io.InputStreamReader;
 public class APICaller {
 
     private Context context;
+    private static String serverIP = "http://192.168.1.185:80/json/";
 
-
-    public APICaller(Context context){
-        this.context = context;
+    public static void executePost(String json) {
+        makeRequest(serverIP, json);
     }
 
-    public class HttpGetTask extends AsyncTask<String, Void, String> {
-        String result = "fail";
-        OnWebServiceResponseListener listener;
-
-        HttpGetTask (OnWebServiceResponseListener listener){
-            this.listener = listener;
+    public static HttpResponse makeRequest(String uri, String json) {
+        try {
+            HttpPost httpPost = new HttpPost(uri);
+            httpPost.setEntity(new StringEntity(json));
+            httpPost.setHeader("Accept", "application/json");
+            httpPost.setHeader("Content-type", "application/json");
+            return new DefaultHttpClient().execute(httpPost);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        @Override
-        protected String doInBackground(String... params) {
-            // TODO Auto-generated method stub
-            return getResult(params[0]);
-        }
-
-        final String getResult(String url)
-        {
-            BufferedReader inStream = null;
-            try {
-                HttpClient httpClient = new DefaultHttpClient();
-                HttpGet httpRequest = new HttpGet(url);
-                HttpResponse response = httpClient.execute(httpRequest);
-                inStream = new BufferedReader(
-                        new InputStreamReader(
-                                response.getEntity().getContent()));
-
-                StringBuffer buffer = new StringBuffer("");
-                String line = "";
-                String NL = System.getProperty("line.separator");
-                while ((line = inStream.readLine()) != null) {
-                    buffer.append(line + NL);
-                }
-                inStream.close();
-
-                result = buffer.toString();
-            } catch (Exception e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } finally {
-                if (inStream != null) {
-                    try {
-                        inStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return result;
-        }
-
-        protected void onPostExecute(String page)
-        {
-            try {
-                JSONObject jsonObject = new JSONObject(page);
-                listener.onWebServiceResponse(jsonObject);
-            } catch (JSONException e){
-
-            }
-        }
+        return null;
     }
-
 
 
 }

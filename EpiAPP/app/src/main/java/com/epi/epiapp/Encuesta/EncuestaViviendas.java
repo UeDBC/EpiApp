@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import com.epi.epiapp.R;
 
 import Model.Encuesta;
+import Model.Respuesta;
 import Model.Vivienda;
 
 public class EncuestaViviendas extends ActionBarActivity {
@@ -118,11 +119,13 @@ public class EncuestaViviendas extends ActionBarActivity {
 
 
         Vivienda vivienda = encuesta.getVivienda();
-        vivienda.setAgua(tieneAguaDeRed);
-        vivienda.setCallePav(callePav);
-        vivienda.setRealizoLimpieza(realizoLimpiezaTanque);
-        vivienda.setTanqueAguaConTapa(tanqueAguaConTapa);
-        vivienda.setTiempoQueVivenEnVivienda(tiempoQueVivenEnVivienda);
+
+        vivienda.getRespuestas().add(new Respuesta(13, String.valueOf(tieneAguaDeRed)));
+        vivienda.getRespuestas().add(new Respuesta(14, String.valueOf(callePav)));
+        vivienda.getRespuestas().add(new Respuesta(15, String.valueOf(realizoLimpiezaTanque)));
+        vivienda.getRespuestas().add(new Respuesta(16, String.valueOf(tanqueAguaConTapa)));
+        vivienda.getRespuestas().add(new Respuesta(17, String.valueOf(tiempoQueVivenEnVivienda)));
+
 
         encuesta.setVivienda(vivienda);
 

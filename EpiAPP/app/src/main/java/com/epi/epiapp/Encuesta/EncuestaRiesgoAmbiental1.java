@@ -5,15 +5,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.epi.epiapp.R;
 
 import Model.Encuesta;
-import Model.RiesgoAmbiental1;
+import Model.Respuesta;
 import Model.Vivienda;
 
 public class EncuestaRiesgoAmbiental1 extends ActionBarActivity
@@ -102,10 +100,13 @@ public class EncuestaRiesgoAmbiental1 extends ActionBarActivity
 
     private void nextStep()
     {
-        Vivienda vivienda = new Vivienda();
-        vivienda=encuesta.getVivienda();
+        Vivienda vivienda = encuesta.getVivienda();
 
-        vivienda.setR1(objeto1());
+        vivienda.getRespuestas().add(new Respuesta(1, String.valueOf(agro_toxico.getSelectedItemPosition())));
+        vivienda.getRespuestas().add(new Respuesta(2, String.valueOf(lava_ropa.getSelectedItemPosition())));
+        vivienda.getRespuestas().add(new Respuesta(3, String.valueOf(fumigan.getSelectedItemPosition())));
+        vivienda.getRespuestas().add(new Respuesta(4, String.valueOf(mosquito.getSelectedItemPosition())));
+
 
         Intent i = new Intent(EncuestaRiesgoAmbiental1.this,EncuestaRiesgoAmbiental2.class);
         i.putExtra("encuesta",(Encuesta)encuesta);
@@ -113,14 +114,4 @@ public class EncuestaRiesgoAmbiental1 extends ActionBarActivity
 
     }
 
-    private RiesgoAmbiental1 objeto1()
-    {
-        RiesgoAmbiental1 model = new RiesgoAmbiental1();
-        model.setPregunta1(agro_toxico.getSelectedItemPosition());
-        model.setPregunta2(lava_ropa.getSelectedItemPosition());
-        model.setPregunta3(fumigan.getSelectedItemPosition());
-        model.setPregunta4(mosquito.getSelectedItemPosition());
-
-        return model;
-    }
 }

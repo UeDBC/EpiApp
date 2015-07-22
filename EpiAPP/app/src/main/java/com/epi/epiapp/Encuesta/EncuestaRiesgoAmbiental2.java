@@ -11,8 +11,7 @@ import android.widget.Spinner;
 import com.epi.epiapp.R;
 
 import Model.Encuesta;
-import Model.RiesgoAmbiental1;
-import Model.RiesgoAmbiental2;
+import Model.Respuesta;
 import Model.Vivienda;
 
 public class EncuestaRiesgoAmbiental2 extends ActionBarActivity
@@ -98,26 +97,17 @@ public class EncuestaRiesgoAmbiental2 extends ActionBarActivity
 
     private void nextStep()
     {
-        Vivienda vivienda = new Vivienda();
-        vivienda=encuesta.getVivienda();
+        Vivienda vivienda = encuesta.getVivienda();
 
-        vivienda.setR2(objeto1());
+        vivienda.getRespuestas().add(new Respuesta(5, String.valueOf(spiner_avioneta.getSelectedItemPosition())));
+        vivienda.getRespuestas().add(new Respuesta(6, String.valueOf(spiner_guarda_agrotoxico.getSelectedItemPosition())));
+        vivienda.getRespuestas().add(new Respuesta(7, String.valueOf(spiner_guarda_envase.getSelectedItemPosition())));
+        vivienda.getRespuestas().add(new Respuesta(8, String.valueOf(reutiliza_envases.getSelectedItemPosition())));
 
         Intent i = new Intent(EncuestaRiesgoAmbiental2.this,EncuestaRiesgoAmbental3.class);
         i.putExtra("encuesta",(Encuesta)encuesta);
         startActivity(i);
 
-    }
-
-    private RiesgoAmbiental2 objeto1()
-    {
-        RiesgoAmbiental2 model = new RiesgoAmbiental2();
-        model.setPregunta5(spiner_avioneta.getSelectedItemPosition());
-        model.setPregunta6(spiner_guarda_agrotoxico.getSelectedItemPosition());
-        model.setPregunta7(spiner_guarda_envase.getSelectedItemPosition());
-        model.setPregunta8(reutiliza_envases.getSelectedItemPosition());
-
-        return model;
     }
 
 
